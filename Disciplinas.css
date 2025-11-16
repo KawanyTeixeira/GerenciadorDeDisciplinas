@@ -277,23 +277,23 @@ letter-spacing: -0.3px;
   font-size: 1.1rem;
 }
 
-.professor-info {
+.professor-info, .horario-info {
   display: flex;
   align-items: center;
-  margin: 15px 0;
+  margin: 10px 0;
   padding: 10px;
   background-color: #f8f9fa;
   border-radius: 8px;
   border-left: 4px solid var(--primary-color);
 }
 
-.professor-info i {
+.professor-info i, .horario-info i {
   color: var(--primary-color);
   margin-right: 10px;
   font-size: 1.2rem;
 }
 
-.sem-professor {
+.sem-professor, .sem-horario {
   color: #6c757d;
   font-style: italic;
 }
@@ -301,18 +301,19 @@ letter-spacing: -0.3px;
 .disciplina-actions {
   display: flex;
   gap: 8px;
+  margin-top: 15px;
 }
 
-.btn-professor {
-  background-color: #ffc107;
-  border-color: #ffc107;
-  color: #212529;
+.btn-editar {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+  color: white;
   font-weight: 500;
 }
 
-.btn-professor:hover {
-  background-color: #e0a800;
-  border-color: #d39e00;
+.btn-editar:hover {
+  background-color: #138496;
+  border-color: #117a8b;
 }
 
 .btn-remover {
@@ -397,4 +398,38 @@ letter-spacing: -0.3px;
 .conteudo-secao {
   opacity: 1;
   transition: opacity 0.4s ease;
+}
+
+/* ===== Botão Flutuante ===== */
+
+.btn-float-add {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.8rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 2000;
+  transition: all 0.3s ease;
+}
+
+.btn-float-add:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* ===== Toast Notifications ===== */
+.toast-container {
+  z-index: 9999;
+}
+
+.toast {
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
