@@ -37,13 +37,13 @@
             </div>
 
             <ul class="list-unstyled menu-items">
-                <li><a href="BD - Calendário/pagcalendario.html" class="menu-item ativo" data-nav="calendario">
+                <li><a href="BD - Calendário/pagcalendario.html" class="menu-item" data-nav="calendario">
                     <i class="fas fa-calendar-alt"></i> Calendário
                 </a></li>
                 <li><a href="#" class="menu-item" data-nav="professor">
                     <i class="fas fa-chalkboard-teacher"></i> Professor
                 </a></li>
-                <li><a href="#" class="menu-item" data-nav="disciplina">
+                <li><a href="#" class="menu-item ativo" data-nav="disciplina">
                     <i class="fas fa-book"></i> Disciplina
                 </a></li>
             </ul>
@@ -62,14 +62,6 @@
           </div>
 
           <div class="card-body">
-            <!-- Campo para adicionar disciplina -->
-            <div class="input-group mb-4">
-              <input type="text" id="nova-disciplina" class="form-control" placeholder="Digite o nome da disciplina...">
-              <button class="btn btn-primary" id="btn-adicionar-disciplina">
-                <i class="fas fa-plus me-2"></i>Adicionar
-              </button>
-            </div>
-
             <!-- Contagem -->
             <div id="resumo" class="mb-4 p-3"></div>
 
@@ -102,22 +94,73 @@
     </main>
   </div>
 
-  <!-- Modal Adicionar Professor -->
-  <div class="modal fade" id="addProfessorModal" tabindex="-1" aria-labelledby="addProfessorModalLabel" aria-hidden="true">
+  <!-- Botão Flutuante para Adicionar Disciplina -->
+  <button class="btn-float-add" id="btn-float-add" title="Adicionar Disciplina">
+    <i class="fas fa-plus"></i>
+  </button>
+
+  <!-- Modal Adicionar Disciplina -->
+  <div class="modal fade" id="addDisciplinaModal" tabindex="-1" aria-labelledby="addDisciplinaModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title"><i class="fas fa-chalkboard-teacher me-2"></i>Atribuir Professor</h5>
+          <h5 class="modal-title"><i class="fas fa-book me-2"></i>Adicionar Disciplina</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
         </div>
         <div class="modal-body">
-          <form id="professor-form">
+          <form id="disciplina-form">
             <div class="mb-3">
-              <label for="professorName" class="form-label">Nome do Professor</label>
-              <input type="text" class="form-control" id="professorName" required placeholder="Digite o nome do professor">
+              <label for="modal-nome-disciplina" class="form-label">Nome da Disciplina</label>
+              <input type="text" class="form-control" id="modal-nome-disciplina" required placeholder="Digite o nome da disciplina">
+            </div>
+            <div class="mb-3">
+              <label for="modal-horario-disciplina" class="form-label">Horário</label>
+              <input type="text" class="form-control" id="modal-horario-disciplina" placeholder="Digite o horário da disciplina">
+            </div>
+            <div class="mb-3">
+              <label for="modal-professor-disciplina" class="form-label">Professor</label>
+              <select class="form-select" id="modal-professor-disciplina">
+                <option value="">Selecione um professor</option>
+                <!-- Opções de professores serão carregadas dinamicamente -->
+              </select>
             </div>
             <button type="submit" class="btn btn-primary w-100">
               <i class="fas fa-save me-2"></i>Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Editar Disciplina -->
+  <div class="modal fade" id="editDisciplinaModal" tabindex="-1" aria-labelledby="editDisciplinaModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="fas fa-edit me-2"></i>Editar Disciplina</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="edit-disciplina-form">
+            <input type="hidden" id="edit-disciplina-index">
+            <div class="mb-3">
+              <label for="edit-nome-disciplina" class="form-label">Nome da Disciplina</label>
+              <input type="text" class="form-control" id="edit-nome-disciplina" required placeholder="Digite o nome da disciplina">
+            </div>
+            <div class="mb-3">
+              <label for="edit-horario-disciplina" class="form-label">Horário</label>
+              <input type="text" class="form-control" id="edit-horario-disciplina" placeholder="Digite o horário da disciplina">
+            </div>
+            <div class="mb-3">
+              <label for="edit-professor-disciplina" class="form-label">Professor</label>
+              <select class="form-select" id="edit-professor-disciplina">
+                <option value="">Selecione um professor</option>
+                <!-- Opções de professores serão carregadas dinamicamente -->
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="fas fa-save me-2"></i>Atualizar
             </button>
           </form>
         </div>
