@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alocação de Horários - ADS</title>
+
+  <!-- Bootstrap + FontAwesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="Disciplinas.css">
+</head>
+<body>
+    <!-- Botão Hamburguer (mobile) -->
+    <nav class="navbar bg-white shadow-sm d-lg-none px-3">
+        <button class="btn btn-outline-secondary" id="toggle-sidebar-mobile">
+            <i class="fas fa-bars"></i>
+        </button>
+        <span class="fw-semibold ms-2">Disciplinas</span>
+    </nav>
+
+    <div class="d-flex wrapper">
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2 class="sidebar-titulo">Alocação de Horários ADS</h2>
+                <img src="https://www.pucminas.br/institucional/PublishingImages/Paginas/brasao/brasao-pucminas-versao-2025.png" alt="Logo PUC Minas" class="sidebar-logo">
+                <button class="btn-fechar-sidebar d-lg-none" id="btn-fechar-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <ul class="list-unstyled menu-items">
+                <li><a href="BD - Calendário/pagcalendario.html" class="menu-item ativo" data-nav="calendario">
+                    <i class="fas fa-calendar-alt"></i> Calendário
+                </a></li>
+                <li><a href="#" class="menu-item" data-nav="professor">
+                    <i class="fas fa-chalkboard-teacher"></i> Professor
+                </a></li>
+                <li><a href="#" class="menu-item" data-nav="disciplina">
+                    <i class="fas fa-book"></i> Disciplina
+                </a></li>
+            </ul>
+        </aside>
+
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- Conteúdo principal -->
+    <main class="content flex-grow-1 p-4" id="main-content">
+      <!-- Página de disciplinas -->
+      <section id="secao-disciplinas" class="conteudo-secao">
+        <div class="card shadow-sm main-card">
+          <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
+            <h5 class="m-0"><i class="fas fa-book me-2"></i>Gestão de Disciplinas</h5>
+            <span class="badge bg-light text-dark fs-6">ADS - PUC Minas</span>
+          </div>
+
+          <div class="card-body">
+            <!-- Campo para adicionar disciplina -->
+            <div class="input-group mb-4">
+              <input type="text" id="nova-disciplina" class="form-control" placeholder="Digite o nome da disciplina...">
+              <button class="btn btn-primary" id="btn-adicionar-disciplina">
+                <i class="fas fa-plus me-2"></i>Adicionar
+              </button>
+            </div>
+
+            <!-- Contagem -->
+            <div id="resumo" class="mb-4 p-3"></div>
+
+            <!-- Container para as disciplinas -->
+            <div id="disciplinas-container" class="d-flex flex-wrap gap-4 justify-content-center justify-content-md-start"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Outras seções -->
+      <section id="secao-calendario" class="conteudo-secao d-none">
+        <div class="card shadow-sm main-card">
+          <div class="card-body text-center py-5">
+            <i class="fas fa-calendar-alt fa-4x text-muted mb-3"></i>
+            <h3 class="text-muted">📅 Em breve: calendário de aulas!</h3>
+            <p class="text-muted">Esta funcionalidade estará disponível em breve.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="secao-professor" class="conteudo-secao d-none">
+        <div class="card shadow-sm main-card">
+          <div class="card-body text-center py-5">
+            <i class="fas fa-chalkboard-teacher fa-4x text-muted mb-3"></i>
+            <h3 class="text-muted">👨‍🏫 Em breve: gerenciamento de professores!</h3>
+            <p class="text-muted">Esta funcionalidade estará disponível em breve.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal Adicionar Professor -->
+  <div class="modal fade" id="addProfessorModal" tabindex="-1" aria-labelledby="addProfessorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><i class="fas fa-chalkboard-teacher me-2"></i>Atribuir Professor</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="professor-form">
+            <div class="mb-3">
+              <label for="professorName" class="form-label">Nome do Professor</label>
+              <input type="text" class="form-control" id="professorName" required placeholder="Digite o nome do professor">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">
+              <i class="fas fa-save me-2"></i>Salvar
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="Disciplinas.js"></script>
+</body>
+</html>
