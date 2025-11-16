@@ -67,7 +67,7 @@ GET    /api/professores        # Listar professores
 
 ### 2. Tecnologias para Integração
 - **Backend**: Node.js + Express ou PHP + Laravel
-- **Banco de Dados**: MySQL ou PostgreSQL
+- **Banco de Dados**: MySQL 
 - **ORM**: Sequelize (Node.js) ou Eloquent (Laravel)
 
 ## 🎯 Como Usar
